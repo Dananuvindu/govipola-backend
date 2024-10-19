@@ -2,6 +2,7 @@ package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.dto.User;
+import org.example.entity.RiceStockEntity;
 import org.example.entity.UserEntity;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
@@ -73,12 +74,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByUserName(String userName) {
-        return mapper.map(repository.findByUserName(userName), User.class);
+    public UserEntity findByUserName(String userName) {
+        return repository.findByUserName(userName);
     }
 
     @Override
     public Boolean isExistUser(String userName) {
         return repository.existsByUserName(userName);
     }
+
 }
